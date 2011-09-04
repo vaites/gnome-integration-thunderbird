@@ -1,0 +1,43 @@
+<!ENTITY gnomeintegration.options.title "Gnome Integration Options">
+<!ENTITY gnomeintegration.options.browse "Browse...">
+
+<!ENTITY gnomeintegration.tab.notifications "Notifications">
+<!ENTITY gnomeintegration.tab.accounts "Accounts">
+
+<!ENTITY gnomeintegration.notify.enabled "New mail notification">
+<!ENTITY gnomeintegration.notify.title "Title (doesn't suports HTML)">
+<!ENTITY gnomeintegration.notify.message "Message (supports HTML using &lt;b&gt;, &lt;i&gt; and &lt;u&gt;)">
+<!ENTITY gnomeintegration.notify.command "Command (path to notify-send binary)">
+<!ENTITY gnomeintegration.notify.timeout "Timeout">
+<!ENTITY gnomeintegration.notify.sound "Sound (full path, empty = no sound)">
+<!ENTITY gnomeintegration.notify.player "Sound player">
+<!ENTITY gnomeintegration.notify.icon "Icon (full path) or status">
+<!ENTITY gnomeintegration.notify.tray "Show icon in system tray (requires Zenity)">
+<!ENTITY gnomeintegration.notify.gravatar "Use Globally Recognized Avatar">
+<!ENTITY gnomeintegration.notify.status "view status list">
+<!ENTITY gnomeintegration.notify.test "Test">
+<!ENTITY gnomeintegration.notify.legend "Legend">
+
+<!ENTITY gnomeintegration.notify.player.system "System (Thunderbird)">
+<!ENTITY gnomeintegration.notify.player.libnotify "Native (notification-daemon)">
+
+<!ENTITY gnomeintegration.accounts.title "Select accounts">
+<!ENTITY gnomeintegration.accounts.name "Account">
+<!ENTITY gnomeintegration.accounts.mail "Maik">
+<!ENTITY gnomeintegration.accounts.description "By default all incoming mail in all accounts are notified, but is possible select what accounts must be notified.">
+
+<!ENTITY gnomeintegration.legend.subject "status">
+<!ENTITY gnomeintegration.legend.author "author (name &lt;mail&gt;)">
+<!ENTITY gnomeintegration.legend.mail "mail (without name)">
+<!ENTITY gnomeintegration.legend.name "name (without &lt;mail&gt;)">
+<!ENTITY gnomeintegration.legend.recipients "recipients">
+<!ENTITY gnomeintegration.legend.carboncopy "carbon copy">
+<!ENTITY gnomeintegration.legend.date "date">
+<!ENTITY gnomeintegration.legend.folder "folder">
+<!ENTITY gnomeintegration.legend.account "account">
+<!ENTITY gnomeintegration.legend.server "server">
+<!ENTITY gnomeintegration.legend.priority "priority">
+<!ENTITY gnomeintegration.legend.sizebytes "size in bytes">
+<!ENTITY gnomeintegration.legend.sizekbytes "size in kilobytes">
+<!ENTITY gnomeintegration.legend.linecount "line count">
+<!ENTITY gnomeintegration.legend.id "message ID">

@@ -1,0 +1,43 @@
+<!ENTITY gnomeintegration.options.title "Opcións de Gnome Integration">
+<!ENTITY gnomeintegration.options.browse "Examinar...">
+
+<!ENTITY gnomeintegration.tab.notifications "Notificacións">
+<!ENTITY gnomeintegration.tab.accounts "Contas">
+
+<!ENTITY gnomeintegration.notify.enabled "Notificación de novo correo">
+<!ENTITY gnomeintegration.notify.title "Título (non admite HTML)">
+<!ENTITY gnomeintegration.notify.message "Mensaxe (admite HTML con &lt;b&gt;, &lt;i&gt; e &lt;u&gt;)">
+<!ENTITY gnomeintegration.notify.command "Comando (ruta ó binario notify-send)">
+<!ENTITY gnomeintegration.notify.timeout "Duración">
+<!ENTITY gnomeintegration.notify.sound "Son (ruta completa, baleiro = sen sonido)">
+<!ENTITY gnomeintegration.notify.player "Reproductor de son">
+<!ENTITY gnomeintegration.notify.icon "Icona (ruta completa) ou estado">
+<!ENTITY gnomeintegration.notify.tray "Mostrar icona na bandexa de sistema (require Zenity)">
+<!ENTITY gnomeintegration.notify.gravatar "Usar Globally Recognized Avatar">
+<!ENTITY gnomeintegration.notify.status "ver lista de estados">
+<!ENTITY gnomeintegration.notify.test "Probar">
+<!ENTITY gnomeintegration.notify.legend "Lenda">
+
+<!ENTITY gnomeintegration.notify.player.system "Sistema (Thunderbird)">
+<!ENTITY gnomeintegration.notify.player.libnotify "Nativo (notification-daemon)">
+
+<!ENTITY gnomeintegration.accounts.title "Seleccionar contas">
+<!ENTITY gnomeintegration.accounts.name "Conta">
+<!ENTITY gnomeintegration.accounts.mail "Correo">
+<!ENTITY gnomeintegration.accounts.description "Por defecto notifícanse tódolos correos electrónicos recibidos en tódalas contas, pero é posible selecciona-las contas activas.">
+
+<!ENTITY gnomeintegration.legend.subject "asunto">
+<!ENTITY gnomeintegration.legend.author "autor (nome &lt;correo&gt;">
+<!ENTITY gnomeintegration.legend.mail "correo (sen nome)">
+<!ENTITY gnomeintegration.legend.name "autor (sen &lt;correo&gt;)">
+<!ENTITY gnomeintegration.legend.recipients "destinatarios">
+<!ENTITY gnomeintegration.legend.carboncopy "copia carbón">
+<!ENTITY gnomeintegration.legend.date "fecha">
+<!ENTITY gnomeintegration.legend.folder "carpeta">
+<!ENTITY gnomeintegration.legend.account "conta">
+<!ENTITY gnomeintegration.legend.server "servidor">
+<!ENTITY gnomeintegration.legend.priority "prioridade">
+<!ENTITY gnomeintegration.legend.sizebytes "tamaño en bytes">
+<!ENTITY gnomeintegration.legend.sizekbytes "tamaño en kilobytes">
+<!ENTITY gnomeintegration.legend.linecount "número de liñas">
+<!ENTITY gnomeintegration.legend.id "ID da mensaxe">

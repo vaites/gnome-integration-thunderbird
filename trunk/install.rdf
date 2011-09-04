@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ * Version: GPL 3.0
+ *
+ * The contents of this file are subject to the GNU General Public License Version
+ * 3.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.gnu.org/licenses/gpl.txt
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initial Developer of the Original Code is Mitar <mitar@tnode.com>
+ * https://addons.mozilla.org/es-ES/thunderbird/addon/3448
+ * Portions created by the Initial Developer are Copyright (C) 2006-2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+	<Description about="urn:mozilla:install-manifest">
+		<!-- General information -->
+		<em:id>gnomeintegration@davidmartinez.net</em:id>
+		<em:version>0.4.2</em:version>
+		<em:bootstrap>false</em:bootstrap>
+		<em:unpack>true</em:unpack>
+		<em:type>2</em:type>
+		<em:name>Gnome Integration</em:name>
+		<em:creator>David Martinez</em:creator>
+		<em:description>Provides better integration with Gnome using standard notifications and other features</em:description>
+		<em:homepageURL>http://dmnet.bitacoras.com/proyectos/gnomeintegration</em:homepageURL>
+		<!-- Extension options -->
+		<em:optionsURL>chrome://gnomeintegration/content/options.xul</em:optionsURL>
+		<em:iconURL>chrome://gnomeintegration/content/icon.png</em:iconURL>
+		<em:icon64URL>chrome://gnomeintegration/content/icon64.png</em:icon64URL>
+		<!-- Mozilla Thunderbird and Icedove -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+				<em:minVersion>2.0</em:minVersion>
+				<em:maxVersion>7.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>
+</RDF>
