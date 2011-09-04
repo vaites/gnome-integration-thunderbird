@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ * Version: GPL 3.0
+ *
+ * The contents of this file are subject to the GNU General Public License Version
+ * 3.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.gnu.org/licenses/gpl.txt
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initial Developer of the Original Code is Mitar <mitar@tnode.com>
+ * https://addons.mozilla.org/es-ES/thunderbird/addon/3448
+ * Portions created by the Initial Developer are Copyright (C) 2006-2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://gnomeintegration/skin/options.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://gnomeintegration/locale/gnomeintegration.dtd">
+<dialog xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" buttons="accept" title="&gnomeintegration.notify.legend;">
+	<groupbox style="width: 400px;">
+		<hbox>
+			<hbox flex="1">
+				<vbox>
+					<label><span class="fixed">%s</span> &gnomeintegration.legend.subject;</label>
+					<label><span class="fixed">%a</span> &gnomeintegration.legend.author;</label>
+					<label><span class="fixed">%m</span> &gnomeintegration.legend.mail;</label>
+					<label><span class="fixed">%n</span> &gnomeintegration.legend.name;</label>
+					<label><span class="fixed">%r</span> &gnomeintegration.legend.recipients;</label>
+					<label><span class="fixed">%c</span> &gnomeintegration.legend.carboncopy;</label>
+					<label><span class="fixed">%d</span> &gnomeintegration.legend.date;</label>
+					<label><span class="fixed">%v</span> &gnomeintegration.legend.server;</label>
+				</vbox>
+			</hbox>
+			<hbox flex="1">
+				<vbox>
+					<label><span class="fixed">%u</span> &gnomeintegration.legend.account;</label>
+					<label><span class="fixed">%f</span> &gnomeintegration.legend.folder;</label>
+					<label><span class="fixed">%p</span> &gnomeintegration.legend.priority;</label>
+					<label><span class="fixed">%b</span> &gnomeintegration.legend.sizebytes;</label>
+					<label><span class="fixed">%k</span> &gnomeintegration.legend.sizekbytes;</label>
+					<label><span class="fixed">%l</span> &gnomeintegration.legend.linecount;</label>
+					<label><span class="fixed">%i</span> &gnomeintegration.legend.id;</label>
+					<label><span class="fixed">%%</span> %</label>
+				</vbox>
+			</hbox>
+		</hbox>
+	</groupbox>
+</dialog>

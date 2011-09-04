@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+ * Version: GPL 3.0
+ *
+ * The contents of this file are subject to the GNU General Public License Version
+ * 3.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.gnu.org/licenses/gpl.txt
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initial Developer of the Original Code is Mitar <mitar@tnode.com>
+ * https://addons.mozilla.org/es-ES/thunderbird/addon/3448
+ * Portions created by the Initial Developer are Copyright (C) 2006-2009
+ * the Initial Developer. All Rights Reserved.
+ *
+ * ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://gnomeintegration/skin/options.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://gnomeintegration/locale/gnomeintegration.dtd">
+<dialog xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" buttons="extra1,help,accept,cancel" ondialoghelp="window.open('chrome://gnomeintegration/content/legend.xul', 'alertPrefsWindow', 'chrome');" ondialogextra1="gnomeIntegrationOptions.test()" buttonlabelextra1="&gnomeintegration.notify.test;" ondialogaccept="return gnomeIntegrationOptions.accept();" title="&gnomeintegration.options.title;">
+	<script type="application/x-javascript" src="chrome://gnomeintegration/content/overlay.js" />
+	<script type="application/x-javascript" src="chrome://gnomeintegration/content/options.js" />
+	<tabbox>
+		<tabs>
+			<tab label="&gnomeintegration.tab.notifications;" />
+			<tab label="&gnomeintegration.tab.accounts;" />
+		</tabs>
+		<tabpanels>
+			<!--notifications -->
+			<tabpanel>
+				<groupbox style="width: 400px;">
+					<caption><checkbox id="gnomeintegrationnotify" label="&gnomeintegration.notify.enabled;" oncommand="gnomeIntegrationOptions.toggleEnable()" /></caption>
+
+					<label value="&gnomeintegration.notify.title;:" />
+					<textbox id="gnomeintegrationtitle" />
+
+					<label value="&gnomeintegration.notify.message;:" />
+					<textbox id="gnomeintegrationmessage" multiline="true" cols="2" />
+
+					<hbox flex="1">
+						<vbox style="width: 340px;">
+							<label value="&gnomeintegration.notify.command;:" />
+							<textbox id="gnomeintegrationcommand" />
+						</vbox>
+						<vbox>
+							<label value="&gnomeintegration.notify.timeout;:" />
+							<textbox id="gnomeintegrationtimeout" cols="2" maxlength="2" style="width: 85px;" />
+						</vbox>
+					</hbox>
+
+					<hbox flex="1">
+						<vbox style="width:340px;">
+							<description>
+								<text value="&gnomeintegration.notify.icon;" />
+								(<text value="&gnomeintegration.notify.status;" class="text-link" href="http://library.gnome.org/devel/icon-naming-spec/#status" onclick="gnomeIntegrationOptions.openLink('http://library.gnome.org/devel/icon-naming-spec/#status')" />):
+							</description>
+							<textbox id="gnomeintegrationicon" />
+						</vbox>
+						<vbox>
+							<label value=" " style="margin-bottom:5px" />
+							<button id="gnomeintegrationiconbrowse" label="&gnomeintegration.options.browse;" oncommand="gnomeIntegrationOptions.browseFile('icon')" />
+						</vbox>
+					</hbox>
+
+					<hbox flex="1">
+						<vbox style="width: 340px;">
+							<label value="&gnomeintegration.notify.sound;:" />
+							<textbox id="gnomeintegrationsound" />
+						</vbox>
+						<vbox>
+							<label value=" " />
+							<button id="gnomeintegrationsoundbrowse" label="&gnomeintegration.options.browse;" oncommand="gnomeIntegrationOptions.browseFile('sound')" />
+						</vbox>
+					</hbox>
+
+					<hbox flex="1">
+						<vbox>
+							<label value="&gnomeintegration.notify.player;:" style="padding: 6px 0;" />
+						</vbox>
+						<vbox>
+							<menulist id="gnomeintegrationplayer">
+								<menupopup>
+									<menuitem label="&gnomeintegration.notify.player.libnotify;" value="libnotify" />
+									<menuitem label="&gnomeintegration.notify.player.system;" value="system" />
+								</menupopup>
+							</menulist>
+						</vbox>
+					</hbox>
+
+					<description>
+						<checkbox id="gnomeintegrationtray" label="&gnomeintegration.notify.tray;" />
+						<checkbox id="gnomeintegrationgravatar" label="&gnomeintegration.notify.gravatar;" />
+						(<text value="Gravatar.com" class="text-link" href="http://gravatar.com" onclick="gnomeIntegrationOptions.openLink('http://gravatar.com')" />)
+					</description>
+				</groupbox>
+			</tabpanel>
+
+			<!-- accounts -->
+			<tabpanel>
+				<groupbox style="width: 400px;">
+					<caption><checkbox id="gnomeintegrationaccounts" label="&gnomeintegration.accounts.title;" oncommand="gnomeIntegrationOptions.toggleEnable('accounts')" /></caption>
+
+					<listbox id="gnomeintegrationaccountlist" seltype="multiple">
+					</listbox>
+					<description>&gnomeintegration.accounts.description;</description>
+				</groupbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</dialog>

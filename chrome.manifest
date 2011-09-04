@@ -1,0 +1,6 @@
+content	gnomeintegration	content/
+locale	gnomeintegration	en-US	locale/en-US/
+locale	gnomeintegration	es-ES	locale/es-ES/
+locale	gnomeintegration	gl-ES	locale/gl-ES/
+skin	gnomeintegration	classic/1.0	skin/
+overlay	chrome://messenger/content/messenger.xul	chrome://gnomeintegration/content/thunderbirdOverlay.xul
