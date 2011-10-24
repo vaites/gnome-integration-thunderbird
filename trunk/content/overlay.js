@@ -89,8 +89,10 @@ var gnomeIntegration =
 		},
 
 	/**
-	 *
-	 **/
+	 * Shows the notification
+	 * 
+	 * @see	http://www.galago-project.org/specs/notification/0.9/index.html
+	 */
 	notify: function(titleFormat, messageFormat, subject, author, recipients, carbonCopy, date, folder, server, priority, messageSize, lineCount, messageID, account, item)
 		{
 		// reads extension preferences
@@ -134,10 +136,13 @@ var gnomeIntegration =
 			if(tray == 'yes') this.notifyTray();
 
 			// generate arguments for notifier
-			if(sound != '' && player == 'libnotify')
-				 var args = [title, message, "-i", icon, "-c", "email.arrived", "-t", timeout, "-u", urgency, "-h", "string:sound-file:" + sound];
-			else var args = [title, message, "-i", icon, "-c", "email.arrived", "-t", timeout, "-u", urgency];
-
+			var args = [title, message, "-i", icon, "-c", "email.arrived", "-t", timeout, "-u", urgency, "-h", "int:transient:1"];
+			if(sound != '' && player == 'libnotify') 
+				{
+				args[args.length] = "-h";
+				args[args.length] = "string:sound-file:" + sound;
+				}
+			
 			// shows the notification
 			this.notifyBinary(args, command);
 			
