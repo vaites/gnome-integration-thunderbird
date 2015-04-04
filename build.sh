@@ -27,22 +27,26 @@
 # Note: It modifies chrome.manifest when packaging so that it points to 
 #       chrome/$APP_NAME.jar!/*
 
-#
-# default configuration file is ./config_build.sh, unless another file is 
-# specified in command-line. Available config variables:
-APP_NAME=          # short-name, jar and xpi files name. Must be lowercase with no spaces
-CHROME_PROVIDERS=  # which chrome providers we have (space-separated list)
-CLEAN_UP=          # delete the jar / "files" when done?       (1/0)
-ROOT_FILES=        # put these files in root of xpi (space separated list of leaf filenames)
-ROOT_DIRS=         # ...and these directories       (space separated list)
-BEFORE_BUILD=      # run this before building       (bash command)
-AFTER_BUILD=       # ...and this after the build    (bash command)
+# short-name, jar and xpi files name. Must be lowercase with no spaces
+APP_NAME=gnomeintegration
 
-if [ -z $1 ]; then
-  . ./config_build.sh
-else
-  . $1
-fi
+# which chrome providers we have (space-separated list)
+CHROME_PROVIDERS=""
+
+# delete the jar / "files" when done?       (1/0)
+CLEAN_UP=1
+
+# put these files in root of xpi (space separated list of leaf filenames)
+ROOT_FILES="README.md CHANGELOG.md TO-DO.md"
+
+# ...and these directories       (space separated list)
+ROOT_DIRS="content defaults locale skin"
+
+# run this before building       (bash command)
+BEFORE_BUILD=
+
+# ...and this after the build    (bash command)
+AFTER_BUILD=
 
 if [ -z $APP_NAME ]; then
   echo "You need to create build config file first!"
@@ -130,3 +134,10 @@ rm -rf $TMP_DIR
 echo "Done!"
 
 $AFTER_BUILD
+
+# link this folder to current user profile extension dir
+# and run this script with --run option to test changes
+if [ "x$1" == "x--run" ]; then
+    killall thunderbird
+    /usr/bin/thunderbird
+fi
