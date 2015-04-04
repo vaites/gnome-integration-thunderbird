@@ -68,7 +68,7 @@ var gnomeIntegration =
 		// initialization code
 		this.initialized = true;
 		this.strings = document.getElementById("gnomeintegration-strings");
-
+        
 		// adds a listener which will be called only when a message is added to the folder (Thunderbird 2.0)
 		if(this.isLegacy())
 			{
@@ -130,9 +130,9 @@ var gnomeIntegration =
 
 		// priority (1 = normal, 2 = low, 3 = very low, 5 = high, 6 = very high)
 		var urgency = (priority > 4) ? 'critical' : ((priority > 1) ? 'low' : 'normal');
-
+        
 		// check for duplicated notifications and limits
-		if(this.checkNotify(account, messageID, timeout) == true)
+		if(this.checkNotify(recipients, messageID, timeout) == true)
 			{
 			// shows icon in system tray if speficied
 			if(tray == 'yes') this.notifyTray();
@@ -227,13 +227,16 @@ var gnomeIntegration =
 	/**
 	 * Check if there are too many notifications at the same time or duplicated ones
 	 * Also checks if notifications for this account are disabled
-	 *
-	 * @param	string	acc
+     * 
+     * NOTE: accountKey can be blank so we check if the account email is in recipient list instead
+     * 
+	 * @link    https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgDBHdr#Attributes
+	 * @param	string	recipients
 	 * @param	string	id
 	 * @param	int		timeout
 	 * @return	bool
 	 */
-	checkNotify: function(acc, id, timeout)
+	checkNotify: function(recipients, id, timeout)
 		{
 		var can_notify = false;
 
@@ -259,21 +262,25 @@ var gnomeIntegration =
 				var selected = this.pref("extensions.gnomeintegration.accounts");
 
 				// if user selected some accounts
-				if(selected != '' && acc != 'gnomeIntegrationTest')
+				if(selected != '')
 					{
 					// evaluates all acounts
   					var accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager).accounts;
-                    var accountCount = accounts.queryElementAt ? accounts.length : accounts.Count();                    
-					for (var i = 0; i < accountCount; i++)
+                    var account_count = accounts.queryElementAt ? accounts.length : accounts.Count();                    
+					for (var i = 0; i < account_count; i++)
 						{
 						// if current account is in selected list, can notify
 						var account = accounts.queryElementAt(i, Components.interfaces.nsIMsgAccount);
-						if(acc == account.key && selected.indexOf(account.incomingServer.prettyName + ';') != -1)
-							{
-							can_notify = true;
-							break;
-							}
-						}
+                        if(account.defaultIdentity !== null)
+                        {
+                            if(selected.indexOf(account.defaultIdentity.email) !== -1
+                            && recipients.indexOf(account.defaultIdentity.email) !== -1)
+                                {
+                                can_notify = true;
+                                break;
+                                }
+                            }
+                        }
 					}
 				// empty value, all acounts
 				else can_notify = true;
@@ -874,7 +881,7 @@ var gnomeIntegrationListener =
 			var notify = (gnomeIntegration.pref("extensions.gnomeintegration.notify") == 'yes');
 			var header = item.QueryInterface(Components.interfaces.nsIMsgDBHdr);
 			var folder = header.folder.QueryInterface(Components.interfaces.nsIMsgFolder);
-
+            
 			// basic variables to detect if is new and is spam
 			var linux = (navigator.platform.indexOf('Linux') != -1);
 			var is_new = (header.flags & GNOMEINTEGRATION_MSG_FLAG_NEW);
@@ -896,7 +903,7 @@ var gnomeIntegrationListener =
 				var names = {};
 				msgHeaderParser.parseHeadersWithArray(header.ccList, addresses, names, fullNames);
 				var cclist = fullNames.value.join(", ");
-
+                
 				// calls the notify method
 				gnomeIntegration.notify(titleFormat, messageFormat, header.mime2DecodedSubject, header.mime2DecodedAuthor, header.mime2DecodedRecipients, cclist, Math.round(header.date / 1000), folder.prettyName, server.prettyName, header.priority, header.messageSize, header.lineCount, header.messageId, header.accountKey, header);
 				}

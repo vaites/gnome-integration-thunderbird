@@ -1,7 +1,8 @@
 Gnome Integration 0.4.4
 =======================
 
-* Fixed selective notification for single accounts (thanks to Stefan Ganser)
+* Fixed account listing (thanks to Stefan Ganser)
+* Fixed selective notification for single accounts
 * Migration from Google code to [GitHub](https://github.com/vaites/gnome-integration-thunderbird)
 
 Gnome Integration 0.4.3
