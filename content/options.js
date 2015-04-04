@@ -71,13 +71,14 @@ var gnomeIntegrationOptions =
 		// fill account list
 		var selected = this.pref("extensions.gnomeintegration.accounts");
 		var accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager).accounts;
-		for (var i = 0; i < accounts.Count(); i++)
-			{
-			var account = accounts.QueryElementAt(i, Components.interfaces.nsIMsgAccount);
-			var item = document.getElementById("gnomeintegrationaccountlist").appendItem(account.incomingServer.prettyName);
-			if(selected.indexOf(account.incomingServer.prettyName) != -1)
-				document.getElementById("gnomeintegrationaccountlist").addItemToSelection(item);
-			}
+        var accountCount = accounts.queryElementAt ? accounts.length : accounts.Count();
+		for (var i = 0; i < accountCount; i++)
+            {
+			var account = accounts.queryElementAt(i, Components.interfaces.nsIMsgAccount);
+            var item = document.getElementById("gnomeintegrationaccountlist").appendItem(account.incomingServer.prettyName);
+            if(selected.indexOf(account.incomingServer.prettyName) != -1)
+                document.getElementById("gnomeintegrationaccountlist").addItemToSelection(item);
+            }
 
 		// disables account list if no explicit account selected (all accounts)
 		if(selected == '') this.toggleEnable('accounts');

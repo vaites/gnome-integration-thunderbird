@@ -260,11 +260,12 @@ var gnomeIntegration =
 				if(selected != '' && acc != 'gnomeIntegrationTest')
 					{
 					// evaluates all acounts
-					var accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager).accounts;
-					for (var i = 0; i < accounts.Count(); i++)
+  					var accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager).accounts;
+                    var accountCount = accounts.queryElementAt ? accounts.length : accounts.Count();                    
+					for (var i = 0; i < accountCount; i++)
 						{
 						// if current account is in selected list, can notify
-						var account = accounts.QueryElementAt(i, Components.interfaces.nsIMsgAccount);
+						var account = accounts.queryElementAt(i, Components.interfaces.nsIMsgAccount);
 						if(acc == account.key && selected.indexOf(account.incomingServer.prettyName + ';') != -1)
 							{
 							can_notify = true;

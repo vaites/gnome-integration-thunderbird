@@ -22,14 +22,14 @@
 	<Description about="urn:mozilla:install-manifest">
 		<!-- General information -->
 		<em:id>gnomeintegration@davidmartinez.net</em:id>
-		<em:version>0.4.3</em:version>
+		<em:version>0.4.4</em:version>
 		<em:bootstrap>false</em:bootstrap>
 		<em:unpack>true</em:unpack>
 		<em:type>2</em:type>
 		<em:name>Gnome Integration</em:name>
 		<em:creator>David Martinez</em:creator>
 		<em:description>Provides better integration with Gnome using standard notifications and other features</em:description>
-		<em:homepageURL>http://dmnet.bitacoras.com/proyectos/gnomeintegration</em:homepageURL>
+		<em:homepageURL>https://github.com/vaites/gnome-integration-thunderbird</em:homepageURL>
 		<!-- Extension options -->
 		<em:optionsURL>chrome://gnomeintegration/content/options.xul</em:optionsURL>
 		<em:iconURL>chrome://gnomeintegration/content/icon.png</em:iconURL>
