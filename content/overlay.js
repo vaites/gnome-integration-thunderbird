@@ -29,6 +29,8 @@ const GNOMEINTEGRATION_MSG_FOLDER_FLAG_INBOX 			= 0x00001000;
 // from nsMsgMessageFlags.h
 const GNOMEINTEGRATION_MSG_FLAG_NEW 					= 0x00010000;
 
+const DIR_SERVICE = new Components.Constructor("@mozilla.org/file/directory_service;1","nsIProperties");
+
 /*
  * Displays a notification using libnotify when a new message is received
  *
@@ -429,7 +431,6 @@ var gnomeIntegration =
 			if(content.length > 0 && this.checkCache())
 				{
 				// path to cache file
-				const DIR_SERVICE = new Components.Constructor("@mozilla.org/file/directory_service;1","nsIProperties");
 				var cache = (new DIR_SERVICE()).get("ProfD", Components.interfaces.nsIFile).path;
 				var path = cache + "/extensions/" + this.uuid + "/cache/" + hash + '.jpg';
 
@@ -834,7 +835,20 @@ var gnomeIntegration =
 		var temp = gnomeIntegration_wordToHex(a)+gnomeIntegration_wordToHex(b)+gnomeIntegration_wordToHex(c)+gnomeIntegration_wordToHex(d);
 
 		return temp.toLowerCase();
-		}
+		},
+        
+    /**
+     * Custom logger
+     * 
+     * @link    https://developer.mozilla.org/en-US/Add-ons/Setting_up_extension_development_environment
+     * @param   string  message
+     */
+    log: function(thing)
+        {
+        dump("-----------------------------------------------------------\n");
+        dump(thing);
+        dump("\n-----------------------------------------------------------\n");
+        }    
 	}
 
 /**
@@ -887,7 +901,7 @@ var gnomeIntegrationListener =
 				gnomeIntegration.notify(titleFormat, messageFormat, header.mime2DecodedSubject, header.mime2DecodedAuthor, header.mime2DecodedRecipients, cclist, Math.round(header.date / 1000), folder.prettyName, server.prettyName, header.priority, header.messageSize, header.lineCount, header.messageId, header.accountKey, header);
 				}
 			}
-		}
+		}    
 	};
 
 window.addEventListener("load", function(e) {gnomeIntegration.load(e);}, false);
