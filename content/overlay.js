@@ -138,7 +138,7 @@ var gnomeIntegration =
 			if(tray == 'yes') this.notifyTray();
 
 			// generate arguments for notifier
-			var args = [title, message, "-i", icon, "-c", "email.arrived", "-t", timeout, "-u", urgency, "-h", "int:transient:1"];
+			var args = [title, message, "-i", icon, "-c", "email.arrived", "-t", timeout, "-u", urgency, "-h", "int:transient:1", "-a", "thunderbird"];
 			if(sound != '' && player == 'libnotify') 
 				{
 				args[args.length] = "-h";
