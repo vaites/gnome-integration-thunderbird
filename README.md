@@ -7,6 +7,8 @@ Gnome Integration for Mozilla Thunderbird
 
 Provides improved integration with Gnome using libnotify.
 
+**IMPORTANT**: due the hard code rewrite needed to upgrade this extension to be compatible with [Mozilla Thunderbird 68](https://developer.thunderbird.net/add-ons/tb68) and greater, this project is **abandoned** and the extension is considered obsolete. 
+
 Features
 --------
 
